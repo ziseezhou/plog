@@ -2,3 +2,5 @@
 2. theme
 3. pc / phone
 4. data IMAP4 backup (data clouds / security)
+
+* 对于任务，如果每天不更新信息的话，则自动归于suspended状态，可以补信息.
