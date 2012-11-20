@@ -25,6 +25,7 @@ transmute
 translucent
 cling
 crippling
+inclined
 convinced
 ferry
 fever
@@ -301,6 +302,26 @@ entertain
 avocation
 trial
 tail
+burrow
+bellows
+angel
+angle
+angular
+waist
+wrist
+translucence
+transmute
+primate
+primal
+primer
+twist
+twine
+wring
+delay
+relay
+rely
+chilli
+chilly
 
 ------
 frown
