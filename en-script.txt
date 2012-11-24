@@ -370,6 +370,10 @@ endotherm
 ectotherm
 juvenile
 »ìÂÒ
+plumb
+plumbing
+puzzling
+dazzling
 
 ------
 frown
@@ -486,3 +490,5 @@ keen
 hull
 stationery
 stationary
+recoil
+retract
