@@ -227,6 +227,8 @@ debonair
 beneath
 fluorescent
 candescence
+incandescent
+glowing
 lethargy
 dazzle
 sluggish
@@ -395,6 +397,9 @@ delectable
 detectable
 scrap
 scrape
+democratic
+diplomacy
+
 
 ------
 frown
