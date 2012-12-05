@@ -352,7 +352,7 @@ drift
 raft
 neat
 intrinsic
-ÌìÉúµÄ
+innate
 dissenting
 discerning
 diagonal
@@ -399,7 +399,13 @@ scrap
 scrape
 democratic
 diplomacy
-
+mammoth
+mammal
+archipelago
+peninsula
+chersonese
+chivalry
+charitable
 
 ------
 frown
