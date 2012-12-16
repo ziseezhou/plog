@@ -435,6 +435,8 @@ weird
 weld
 grind(ground)
 gland
+substitute
+substantial
 
 ------
 frown
