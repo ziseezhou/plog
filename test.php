@@ -7,12 +7,13 @@
  <body>
 <?php 
 
+/***************************************************
 // test L10n
 include_once('config.php');
 include_once('fun.php');
 
 
-$_SESSION['local'] = 'en_rUS';
+//$_SESSION['local'] = 'en_rUS';
 
 
 PG_ASSERT(_local_file_load('common'));
@@ -20,6 +21,11 @@ PG_ASSERT(_local_file_load('common'));
 echo "<br/>";
 
 echo "settings:"._('settings');
+
+echo "<br/>";
+
+print_r($_PG_LOCAL);
+***************************************************/
 
 ?>
  </body>
