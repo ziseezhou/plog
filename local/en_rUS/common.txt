@@ -1,0 +1,5 @@
+plog|Plog
+calendar|Calendar
+account|Account
+search|Search
+settings|Settings
