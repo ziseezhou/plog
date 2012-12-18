@@ -27,4 +27,57 @@ function str_remove_sql_injection($s)
 
     return $s;
 }
+
+
+function _local_file_load($localFileName){
+    global $_PG_LOCAL;
+
+    if (!isset($_PG_LOCAL) || !is_array($_PG_LOCAL)) {
+        $_PG_LOCAL = array();
+    }
+
+    // fetch local flag
+    $local = $_SESSION['local']; // example: zh_rCN
+    if ( strlen($local)<=0) {
+        $local = "en_rUS"; // default
+    } 
+
+    $filePath = "./local/".$local."/".$localFileName.'.txt'; // example: /local/zh_rCN/common.txt
+
+    // according to the local session, load the matching local string file.
+    $fArray = @file($filePath);
+    if ($fArray==FALSE) {
+        return array(-1, "Failed to open file:".$filePath);
+    }
+
+    foreach ($fArray as $lineStr) {
+        $keyValue = explode("|", $lineStr, 2);
+
+        $_PG_LOCAL[$keyValue[0]] = $keyValue[1];
+    }
+
+}
+
+function PG_ASSERT($ret) {
+    global $_PG_LOCAL;
+    global $_PG_DEBUG;
+
+    if (isset($_PG_DEBUG) && $_PG_DEBUG && is_array($ret)) {
+        echo "Assert: ".$ret[0].", ".$ret[1];
+    }
+}
+
+function _($key) {
+    global $_PG_LOCAL;
+
+    if (!isset($_PG_LOCAL) || 
+        !is_array($_PG_LOCAL) ||
+        !array_key_exists($key, $_PG_LOCAL)) {
+        return $key;
+    }
+
+    return $_PG_LOCAL[$key];
+}
+
+
 ?>

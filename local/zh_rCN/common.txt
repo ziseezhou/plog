@@ -1,0 +1,5 @@
+plog|日志
+calendar|日历
+account|账户
+search|搜索
+settings|设置
