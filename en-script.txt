@@ -435,6 +435,13 @@ weird
 weld
 grind(ground)
 gland
+boulder
+rubble
+rubber
+rhythemic
+rhetoric
+submerge
+subside
 
 ------
 frown
