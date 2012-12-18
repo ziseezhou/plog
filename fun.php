@@ -39,6 +39,7 @@ function _local_file_load($localFileName){
     // fetch local flag
     $local = $_SESSION['local']; // example: zh_rCN
     if ( strlen($local)<=0) {
+
         $local = "zh_rCN"; // default Chinese
     } 
 

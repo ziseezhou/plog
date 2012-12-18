@@ -11,7 +11,9 @@
 include_once('config.php');
 include_once('fun.php');
 
+
 $_SESSION['local'] = 'en_rUS';
+
 
 PG_ASSERT(_local_file_load('common'));
 
