@@ -442,6 +442,8 @@ rhythemic
 rhetoric
 submerge
 subside
+radiance
+ordinance
 
 ------
 frown
