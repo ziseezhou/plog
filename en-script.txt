@@ -446,6 +446,8 @@ submerge
 subside
 radiance
 ordinance
+shatter
+shallow
 
 ------
 frown
