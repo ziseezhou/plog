@@ -437,6 +437,14 @@ grind(ground)
 gland
 substitute
 substantial
+boulder
+rubble
+rubber
+rhythemic
+rhetoric
+submerge
+subside
+
 
 ------
 frown

@@ -10,3 +10,33 @@
   3. ready.load(main.skeleton)
   4. ready.load(every.element)
   5. dump everything
+
+
+------
+Multi-language solution:(i18n/l10n)
+Same with android:
+The language is defined by a two-letter ISO 639-1 language code, optionally followed by a two letter ISO 3166-1-alpha-2 region code (preceded by lowercase "r").
+detail: /resource/local_ref.htm
+
+1. _local_load() function load the local strings and form a _PG_LOCAL hash table;
+2. _()function fetch the local string from _PG_LOCAL hash table, if anything wrong, return the key as the value;
+3. e.g. _("key") invoke function and return local string
+
+above is planed to be compatible with native gettext solution in PHP.
+
+For example: {{
+
+include_once('config.php');
+include_once('fun.php');
+
+
+$_SESSION['local'] = 'en_rUS';
+
+
+PG_ASSERT(_local_file_load('common'));
+
+echo "<br/>";
+
+echo "settings:"._('settings');
+
+}}
