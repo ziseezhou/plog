@@ -444,6 +444,11 @@ submerge
 subside
 radiance
 ordinance
+royal
+foray
+rayon
+steer
+sheer
 
 ------
 frown
