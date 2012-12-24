@@ -435,6 +435,8 @@ weird
 weld
 grind(ground)
 gland
+substitute
+substantial
 boulder
 rubble
 rubber
@@ -449,6 +451,8 @@ foray
 rayon
 steer
 sheer
+shatter
+shallow
 
 ------
 frown
