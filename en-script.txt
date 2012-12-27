@@ -421,6 +421,7 @@ optical
 opacity
 diagonal
 angular
+huddle
 puddle
 paddler
 region
@@ -451,8 +452,24 @@ foray
 rayon
 steer
 sheer
+shear
 shatter
 shallow
+subside
+submerge
+infinite
+indefinitly
+definitive
+defective
+defecate
+deficient
+efficient
+epic
+epoch
+mythical
+mysterious
+facilitate
+infiltrate
 
 ------
 frown
