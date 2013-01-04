@@ -28,6 +28,12 @@ function str_remove_sql_injection($s)
     return $s;
 }
 
+function show_error_page($err) {
+    $_SESSION['error'] = $err;
+    include('error.php');
+    exit;
+}
+
 
 function _local_file_load($localFileName){
     global $_PG_LOCAL;
@@ -39,6 +45,11 @@ function _local_file_load($localFileName){
     // fetch local flag
     $local = $_SESSION['local']; // example: zh_rCN
     if ( strlen($local)<=0) {
+
+        // again check from cookie;
+        // {{
+
+        // }}
 
         $local = "zh_rCN"; // default Chinese
     } 
@@ -59,12 +70,15 @@ function _local_file_load($localFileName){
 
 }
 
-function PG_ASSERT($ret) {
+function PG_ASSERT($ret, $show_err_page=false) {
     global $_PG_LOCAL;
     global $_PG_DEBUG;
 
-    if (isset($_PG_DEBUG) && $_PG_DEBUG && is_array($ret)) {
+    if (isset($_PG_DEBUG) && $_PG_DEBUG && is_array($ret) && $ret[0]<0) {
         echo "Assert: ".$ret[0].", ".$ret[1];
+        if ($show_err_page) {
+            show_error_page($ret);
+        }
     }
 }
 

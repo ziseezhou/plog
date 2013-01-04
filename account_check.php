@@ -4,7 +4,7 @@ session_start();
 // route to login
 if (!isset($_SESSION['account']))
 {
-    include('login.php');
+    include('index.php');
     exit;
 }
 ?>

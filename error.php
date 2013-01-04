@@ -1,7 +1,4 @@
 <?php 
-include('account_check.php');
-
-
 
 ?>
 <!DOCTYPE HTML>
@@ -12,7 +9,8 @@ include('account_check.php');
 </head>
 <body>
 <?php 
-
+// show error info
+echo $_SESSION['error'];
 ?>
 </body>
 </html>
