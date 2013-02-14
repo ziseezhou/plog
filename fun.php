@@ -1,5 +1,7 @@
 <?php 
 
+include_once('config.php');
+
 // check requst is or not from mobile
 function is_mobile(){
     $regex_match="/(nokia|iphone|android|motorola|^mot\-|softbank|foma|docomo|kddi|up\.browser|up\.link|";
@@ -82,6 +84,11 @@ function PG_ASSERT($ret, $show_err_page=false) {
     }
 }
 
+function PG_ASSERT2($ret, $tip, $show_err_page=false) {
+    if (flase == $ret)
+    PG_ASSERT(array(-1, $tip), $show_err_page);
+}
+
 function _($key) {
     global $_PG_LOCAL;
 
@@ -94,5 +101,41 @@ function _($key) {
     return $_PG_LOCAL[$key];
 }
 
+function _exit_json($ret) {
+    if (!is_array($ret)) {
+        PG_ASSERT(array(-1, "_exit_json need a array parameter"), true);
+        exit;
+    }
+
+    echo json_encode($ret);
+
+    exit;
+}
+
+function conn() {
+    global $_DB_HOST, $_DB_NAME, $_DB_ACCOUNT, $_DB_PWD;
+
+    $conn = mysql_connect($_DB_HOST, $_DB_ACCOUNT, $_DB_PWD);
+    if (false == $conn) {
+        return $conn;
+    }
+    
+    if (!mysql_select_db($_DB_NAME, $conn)) {
+        mysql_close($conn);
+        $conn = false;
+        return $conn;
+    }
+    
+    return $conn;
+}
+
+function db_str_filter($s)
+{
+    //$s=str_replace("\\", '&#92;', $s);
+    $s = ereg_replace("'", "&#39", $s);
+    $s = ereg_replace('"', "&quot;", $s);
+
+    return $s;
+}
 
 ?>

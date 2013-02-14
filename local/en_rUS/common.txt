@@ -3,3 +3,7 @@ calendar|Calendar
 account|Account
 search|Search
 settings|Settings
+login|Login
+login_name|User Name
+login_pwd|Password
+login_input_null|User name and password can not be null.

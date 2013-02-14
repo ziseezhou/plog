@@ -7,8 +7,7 @@ VERTIAL:
 3. pc / phone
 4. data IMAP4 backup (data clouds / security)
 
-* To task, if no any update info provided, the state will be suspended on that day. However, we can edit to update later.
-* a page body will be nothing except $(document).ready(function()), we do everything in init module:
+* a page body will be nothing before $(document).ready(function()), we do everything in init module:
   1. main page only has ready(function)
   2. ready.load(setting)
   3. ready.load(main.skeleton)
@@ -17,6 +16,7 @@ VERTIAL:
 
 HORIZONTAL:
 LOG, TASKS, CALENDAR, CARDS, SETTINGS
+* To task, if no any update info provided, the state will be suspended on that day. However, we can edit to update later.
 
 ------
 MULTI-LAUNGUAGE SOLUTION:

@@ -1,6 +1,7 @@
 <?php 
 include('account_check.php');
-
+include_once('config.php');
+include_once('fun.php');
 
 
 ?>
