@@ -1,7 +1,10 @@
-<?php 
-include('account_check.php');
-include_once('config.php');
+<?php
+include_once('security.php');
 include_once('fun.php');
+include_once('config.php');
+
+
+security_check();
 
 
 ?>

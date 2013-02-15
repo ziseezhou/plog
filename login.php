@@ -35,7 +35,7 @@ if (strlen($account) > 0) {
         }
     }
 
-    _exit_json(array('ret'=>false));
+    _exit_json(array('ret'=>false, 'account'=>$account, 'pwd'=>$pwd, 'md5'=>md5('zhouguijun')));
 }
 
 ?>
@@ -44,33 +44,36 @@ if (strlen($account) > 0) {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>PLOG</title>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script language="javascript">
-$(document).ready(function() {
-    $("#loginForm").submit(function(event){
-        event.preventDefault();
+ <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>          
+ <script type="text/javascript">                                         
+    $(document).ready(function(){
+        $("#loginForm").submit(function(event){
+            event.preventDefault();
 
-        //alert("xxx");
+            var form    = $(this);
+            var account = form.find('input[name="a"]').val();
+            var pwd     = form.find('input[name="p"]').val();
+            var url     = form.attr('action');
 
-        var $form   = $(this);
-        var $account = $form.find('account').val();
-        var $pwd     = $form.find('pwd').val();
-        var $url     = $form.attr('action');
+            if (account.length==0 || pwd.length==0) {
+                alert("<?=_('login_input_null');?>");
+                return;
+            }
 
-        if ($account.lenght==0 || $pwd.lenght==0) {
-            alert("<?=_(login_input_null);?>");
-            return;
-        }
-
-        var post = $.post($url, {account:$account, pwd:$pwd});
-
-        post.done(function(data){
-            var ret = $(data).attr('ret');
-            alert(ret);
+            $.post(url, {a:account, p:pwd},
+            function(data){
+                //alert(data.ret);
+                if (data.ret) {
+                    //alert('true, ret='+data.ret+', account='+data.account);
+                } else {
+                    alert(jQuery.param(data));
+                    //alert('false, ret='+data.ret+', account='+data.account);
+                    //console.log(data);
+                }
+            }, "json");
         });
     });
-);
-</script>
+ </script> 
 </head>
 <body>
 <div id="container">
