@@ -7,3 +7,4 @@ login|登录
 login_name|用户名
 login_pwd|密码
 login_input_null|用户名与密码不能为空.
+login_input_error|用户名或密码错误.

@@ -4,9 +4,6 @@ include_once('fun.php');
 include_once('config.php');
 
 
-security_check();
-
-
 ?>
 <!DOCTYPE HTML>
 <html>

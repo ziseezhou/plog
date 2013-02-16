@@ -7,3 +7,4 @@ login|Login
 login_name|User Name
 login_pwd|Password
 login_input_null|User name and password can not be null.
+login_input_error|User name or password error.
