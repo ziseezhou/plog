@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (!isset($watchdog)) {
     header('HTTP/1.1 404 Not Found');
     header("status: 404 Not Found");

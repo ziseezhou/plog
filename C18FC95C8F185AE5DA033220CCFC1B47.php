@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 /**
  * $watchdog is a flag that indicates:
  * the requestion is normally routed in here, unless
@@ -6,6 +8,22 @@
  */
 $watchdog = true;
 
+if (!isset($_SESSION['account']))
+{
+    include('login.php');
+    exit;
+}
 
-include('login.php');
+// ===========================================
+// dispatch engine
+/*
+
+
+
+
+*/
+
+$action = $_GET['action'];
+include('main.php');
+
 ?>

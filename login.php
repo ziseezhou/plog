@@ -1,11 +1,4 @@
 <?php 
-session_start();
-if (isset($_SESSION['account']))
-{
-    include('main.php');
-    exit;
-}
-
 include_once('fun.php');
 PG_ASSERT(_local_file_load('common'));
 
@@ -65,7 +58,7 @@ $(document).ready(function(){
         $.post(url, {a:account, p:pwd},
         function(data){
             if (data.ret) {
-                alert('here');
+                //alert('here');
                 location.reload(true);
             } else {
                 //alert(jQuery.param(data));
@@ -82,17 +75,12 @@ html { overflow-y:scroll; }
 body { margin:0; padding:45px 0 0; font:12px/1.5 \5b8b\4f53,Arial,sans-serif; background:#ffffff; }
 ol,ul { list-style:none; }
 li{ float:left; clear:both; display:block; height: 40px; }
-form {margin-top:50px;margin-left: 160px; }
-#loginBox { position: absolute; top: 50%; left:50%; height: 360px; margin-top: -180px; width: 560px; margin-left: -280px; background-color: #F8FCFE;border: solid 1px #C3D9FF;border-radius:5px}
-#a input, #p input { height: 20px; width: 146px; border: solid 1px #A2BAE7; vertical-align:middle; padding-top: 3px; background-color: white; }
-#s input {height:25px; width: 206px;}
-.topic { float:left; width:60px; line-height:25px; text-align:justify; font-size:14px; }
-#info { display:none;padding: 3px;
-    width: 200px;
-    text-align: left;
-    color: red;
-    background-color:#FFFFDD;
-    border: solid 1px #E3E197;}
+form { margin-top:100px; margin-left: 170px; }
+#loginBox { position: absolute; top: 50%; left:50%; height: 360px; margin-top: -180px; width: 560px; margin-left: -280px; background-color: #F8FCFE; border: solid 1px #C3D9FF; border-radius:5px}
+#a input, #p input { height: 20px; width: 145px; border: solid 1px #A2BAE7; vertical-align:middle; padding-top: 3px; background-color: white; }
+#s input { height:25px; width: 200px; }
+.topic { float:left; width:55px; line-height:25px; text-align:justify; font-size:14px; }
+#info { display:none; padding: 3px; width: 200px; text-align: left; color: red; background-color:#FFFFDD; border: solid 1px #E3E197; }
 </style>
 </head>
 <body>

@@ -78,4 +78,33 @@ DATE EXCHANGE SOLUTION:
 
 json
 
+------
+LOADING PROGRESS:
+
+1. first entry.
+  1. loading user's settings;
+  2. loading main view skeleton;
+  3. loading main view css
+
+2. loading default content view || change content view
+  1. remove exist content view;
+  2. related js object destruct;
+  3. load new content view;
+  4. load new content js object; // maybe load all js scripts at beginning.
+  5. run new content js initialization, hook view actions;
+
+3. data exchange
+  1. $.get(action, params, ...)
+  2. $.get().done(function{});
+
+------
+CSS FOLD STRUCTRUE
+css/
+   |- image-theme-####/
+   |- .../
+   |- theme-####.css
+   |- ....css
+
+
+
 
