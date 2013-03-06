@@ -1,1 +1,11 @@
-{}
+@charset "utf-8";
+/* CSS Document */
+body { margin:0; padding: 0; }
+#navi { float: left; width: 100%; background-color: #333333; }
+#navi ul { float: left; display: inline; margin: 0; padding: 0; list-style-type: none; height:100%; }
+#navi ul li { display: block; float: left; margin-top: 2px; margin-right: 2px; text-align: center; line-height: 36px; min-width: 80px; height: 36px; }
+.navi_elem { background-color: transparent; color: white; }
+.navi_elem_mouseover { background-color: red; cursor: pointer; color: white; }
+.navi_elem_mouseout { background-color: transparent; color: white; }
+.navi_elem_focus { background-color: white; font-weight: bold; cursor: default; color: red; }
+.navi_elem_focus_mouseover { }

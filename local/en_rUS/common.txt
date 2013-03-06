@@ -3,6 +3,11 @@ calendar|Calendar
 account|Account
 search|Search
 settings|Settings
+navi_plog|PLOG
+navi_thoughts|Thoughts
+navi_banks|Banks
+navi_calendar|Calendar
+navi_settings|Settings
 login|Login
 login_name|User Name
 login_pwd|Password

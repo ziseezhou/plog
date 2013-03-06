@@ -3,6 +3,11 @@ calendar|日历
 account|账户
 search|搜索
 settings|设置
+navi_plog|PLOG
+navi_thoughts|设想
+navi_banks|银行
+navi_calendar|日历
+navi_settings|配置
 login|登录
 login_name|用户名
 login_pwd|密码
