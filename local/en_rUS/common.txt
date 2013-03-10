@@ -4,7 +4,7 @@ account|Account
 search|Search
 settings|Settings
 navi_plog|PLOG
-navi_thoughts|Thoughts
+navi_plans|Plans
 navi_banks|Banks
 navi_calendar|Calendar
 navi_settings|Settings
