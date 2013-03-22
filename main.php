@@ -32,7 +32,10 @@ PG_ASSERT(_local_file_load('common'));
 </div>
 <div id="noti"></div>
 
-<div id="scene"></div>
+<div id="content">
+    <div id="content_title"></div>
+    <div id="content_body"></div>
+</div>
 
 </div>
 </div>

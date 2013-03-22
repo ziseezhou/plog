@@ -70,25 +70,116 @@ $(document).ready(function(){
 });
 </script>
 <style type="text/css">
-* { padding:0; margin:0; }
-html { overflow-y:scroll; }
-body { margin:0; padding:45px 0 0; font:12px/1.5 \5b8b\4f53,Arial,sans-serif; background:#ffffff; }
-ol,ul { list-style:none; }
-li{ float:left; clear:both; display:block; height: 40px; }
-form { margin-top:100px; margin-left: 170px; }
-#loginBox { position: absolute; top: 50%; left:50%; height: 360px; margin-top: -180px; width: 560px; margin-left: -280px; background-color: #F8FCFE; border: solid 1px #C3D9FF; border-radius:5px}
-#a input, #p input { height: 20px; width: 145px; border: solid 1px #A2BAE7; vertical-align:middle; padding-top: 3px; background-color: white; }
-#s input { height:25px; width: 200px; }
-.topic { float:left; width:55px; line-height:25px; text-align:justify; font-size:14px; }
-#info { display:none; padding: 3px; width: 200px; text-align: left; color: red; background-color:#FFFFDD; border: solid 1px #E3E197; }
+* {
+    padding:0;
+    margin:0;
+}
+html {
+    overflow-y:scroll;
+}
+body {
+    margin:0;
+    padding:45px 0 0;
+    font-family: arial, sans-serif;
+    background:#ffffff;
+}
+ol,ul {
+    list-style:none;
+}
+li{
+    float:left;
+    clear:both;
+    display:block;
+    height: 40px;
+}
+form {
+    position: absolute;
+    top: 50%;
+    left:50%;
+    height: 136px;
+    margin-top: -60px;
+    width: 160px;
+    margin-left: -80px;
+}
+#loginBox {
+    position: absolute;
+    top: 50%;
+    left:50%;
+    height: 360px;
+    margin-top: -180px;
+    width: 560px;
+    margin-left: -280px;
+    border: solid 1px #C3D9FF;
+    border-radius:5px;
+    background-color: #F8FCFE;
+    box-shadow:0 0 3px rgba(103,166,217,0.5);
+    -moz-box-shadow:0 0 3px rgba(103,166,217,0.5);
+    -webkit-box-shadow:0 0 3px rgba(103,166,217,0.5);
+    -o-box-shadow:0 0 3px rgba(103,166,217,0.5);
+    background-image: url(img/bg_loginBox.gif);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+#a input, #p input {
+    height: 25px;
+    width: 155px;
+    vertical-align:middle;
+    padding-top: 3px;
+    background-color: white;
+}
+#s input {
+    height:28px;
+    width: 155px;
+}
+#info {
+    display:none;
+    padding: 3px;
+    width: 155px;
+    text-align: left;
+    color: red;
+    background-color:#FFFFDD;
+    border: solid 1px #E3E197;
+}
+#title {
+    font-size: 14px;
+    font-weight:bold;
+    text-align: center;
+    height: 35px; 
+    line-height: 35px; 
+    /* Firefox 3.6+ */
+    background: -moz-linear-gradient(top, #ace, #F8FCFE); 
+    /* Safari 4-5, Chrome 1-9 */ 
+    /* -webkit-gradient(,  [, ]?,  [, ]? [, ]*) */
+    background: -webkit-gradient(linear,top,from(#ace),to(#F8FCFE));
+    /* Safari 5.1+, Chrome 10+ */
+    background: -webkit-linear-gradient(top, #ace, #F8FCFE);
+    /* Opera 11.10+ */
+    background: -o-linear-gradient(top, #ace, #F8FCFE);
+    border-bottom: dashed 1px #ECFFFF;
+}
+input[type=text], input[type=password] {
+    transition: all 0.20s ease-in-out;
+    -webkit-transition: all 0.20s ease-in-out;
+    -moz-transition: all 0.20s ease-in-out;
+    border:1px solid #C3D9FF;
+    border-radius: 3px;
+    outline: none;
+}
+input[type=text]:focus,input[type=password]:focus,textarea:focus{
+    box-shadow:0 0 5px rgba(103,166,217,1);
+    -moz-box-shadow:0 0 5px rgba(103,166,217,1);
+    -webkit-box-shadow:0 0 5px rgba(103,166,217,1);
+    -o-box-shadow:0 0 5px rgba(103,166,217,1);
+}
 </style>
 </head>
 <body>
 <div id="loginBox">
+<div id="title">PLOG - <?=_('login');?></div>
 <form action="./" id="loginForm">
 <ul>
-<li id="a"><div class="topic"><?=_('login_name');?>: </div><input type="text" name="a" maxlength="30" /></li>
-<li id="p"><div class="topic"><?=_('login_pwd');?>:  </div><input type="password" name="p"  maxlength="30" /></li>
+<li id="a"><input type="text" name="a" maxlength="30" placeholder="<?=_('login_name');?>" /></li>
+<li id="p"><input type="password" name="p"  maxlength="30" placeholder="<?=_('login_pwd');?>" /></li>
 <li id="s"><input type="submit" value="<?=_('login');?>" /></li>
 <li id="info"></li>
 </ul>

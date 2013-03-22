@@ -67,7 +67,22 @@ Context.navi.init = function() {
     });
 
     Context.navi.updateCSS();
+
 };
+
+Context.content = {};
+Context.content.body = $('#content_body');
+Context.content.unload = null;
+Context.content.load = function() {
+    with(Context.content) {
+        if ($.isFunction(unload)) unload();
+    }
+}
+Context.content.init = function() {
+    ;
+}
+
+
 
 
 })();
@@ -75,4 +90,5 @@ Context.navi.init = function() {
 // main initialization
 $(document).ready(function(){
     Context.navi.init();
+    Context.content.init();
 });
