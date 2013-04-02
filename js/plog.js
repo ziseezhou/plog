@@ -1,0 +1,5 @@
+(function(){
+
+log('hello, plogjs');
+
+})();

@@ -8,10 +8,12 @@ PG_ASSERT(_local_file_load('common'));
 <!DOCTYPE HTML>
 <html>
 <head>
+<title>PLOG</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href='css/main.css' rel='stylesheet' type='text/css' />
-<title>PLOG</title>
+<link href='css/jquery-ui-1.10.2.min.css' rel='stylesheet' type='text/css' />
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.2.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
