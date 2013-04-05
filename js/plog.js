@@ -1,5 +1,13 @@
 (function(){
 
-log('hello, plogjs');
+$(".pt").hover(
+    /*
+    function () {
+        $(this).addCalss('pt_hover');
+    },
+    function () {
+        $(this).removeClass('pt_hover');
+    }*/
+);
 
 })();
