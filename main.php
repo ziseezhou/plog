@@ -11,15 +11,14 @@ PG_ASSERT(_local_file_load('common'));
 <title>PLOG</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href='css/main.css' rel='stylesheet' type='text/css' />
-<link href='css/jquery-ui-1.10.2.min.css' rel='stylesheet' type='text/css' />
+<link href='css/tipsy.css' rel='stylesheet' type='text/css' />
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.tipsy.js"></script>
+<script type="text/javascript" src="js/jquery.hotkeys.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
-<?php 
-
-?>
+<div id="mask"></div>
 <div id="lay0">
 <div id="lay1">
 

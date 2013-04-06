@@ -65,11 +65,17 @@ function _local_file_load($localFileName){
     }
 
     foreach ($fArray as $lineStr) {
-        $keyValue = explode("|", $lineStr, 2);
+        $lineStr = trim($lineStr);
+        if (strlen($lineStr) == 0) continue;
 
-        //$_PG_LOCAL[$keyValue[0]] = $keyValue[1];
-        $_PG_LOCAL[$keyValue[0]] = preg_replace("/\s/","",$keyValue[1]);
-        
+        $isComment = strpos($lineStr, "//");
+        if (false === $isComment || 0 != $isComment) {
+
+            $keyValue = explode("|", $lineStr, 2);
+
+            //$_PG_LOCAL[$keyValue[0]] = $keyValue[1];
+            $_PG_LOCAL[$keyValue[0]] = preg_replace("/\s/","",$keyValue[1]);
+        } //else { echo $lineStr;} // debug code
     }
 
 }

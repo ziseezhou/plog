@@ -13,3 +13,12 @@ login_name|User Name
 login_pwd|Password
 login_input_null|User name and password can not be null.
 login_input_error|User name or password error.
+
+// plog
+day|Day View
+month|Month List
+year|Year List
+save|Save
+prev|Prev Day
+next|Next Day
+today|Today

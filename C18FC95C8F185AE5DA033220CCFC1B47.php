@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('config.php');
 
 /**
  * $watchdog is a flag that indicates:
@@ -24,10 +25,22 @@ if (!isset($_SESSION['account']))
 ]
 
 
-
 */
 
-$action = $_GET['action'];
-include('main.php');
+$content = $_GET['c'];
+
+if ($content == '') {
+    include('main.php');
+    exit;
+}
+
+foreach ($_CONTENT_MAP as $key => $value) {
+    if ($key == $content) {
+        include($value);
+        exit;
+    }
+}
+
+include('404.php');
 
 ?>

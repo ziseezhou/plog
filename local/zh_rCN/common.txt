@@ -13,3 +13,12 @@ login_name|用户名
 login_pwd|密码
 login_input_null|用户名与密码不能为空.
 login_input_error|用户名或密码错误.
+
+// plog
+day|按天显示
+month|按月显示
+year|按年显示
+save|保存
+prev|前一天
+next|后一天
+today|今天
