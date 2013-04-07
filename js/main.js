@@ -6,7 +6,8 @@
 // log() define 
 
 var DEBUG = true;
-console = console || {};
+//console = console || {};
+console = typeof console==='undefined' ? {} : console; // avoid error on IE6
 console.log = console.log || function(){};
 log = function(s) {
     if (DEBUG) {
