@@ -50,16 +50,20 @@ body {
     font-size: 15px;
     font-weight: bold;
     color: #666;
+    /*
     border-top: solid 1px #C3D9FF;
     border-left: solid 1px #C3D9FF;
-    border-right: solid 1px #C3D9FF;
+    border-right: solid 1px #C3D9FF;*/
 }
 .navi_elem_mouseover {
     font-size: 15px;
     font-weight: bold;
     cursor: default;
-    color: #666;
-    background: #C3D9FF;
+    color: white;
+    background: #4169E1;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    /*
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#98B0DA', endColorstr='#C3D9FF');
     background: -moz-linear-gradient(top, #98B0DA, #C3D9FF);
     background: -webkit-gradient(linear,top,from(#98B0DA),to(#C3D9FF));
@@ -69,7 +73,7 @@ body {
     border-top-right-radius: 4px;
     border-top: solid 1px #C3D9FF;
     border-left: solid 1px #C3D9FF;
-    border-right: solid 1px #C3D9FF;
+    border-right: solid 1px #C3D9FF;*/
 }
 .navi_elem_focus {
     background-color: white;
@@ -84,9 +88,10 @@ body {
     background: -webkit-gradient(linear,top,from(#F1FAFA),to(#FDFDFD));
     background: -webkit-linear-gradient(top, #F1FAFA, #FDFDFD);
     background: -o-linear-gradient(top, #F1FAFA, #FDFDFD);
+    /*
     border-top: solid 1px #C3D9FF;
     border-left: solid 1px #C3D9FF;
-    border-right: solid 1px #C3D9FF;
+    border-right: solid 1px #C3D9FF;*/
 }
 .navi_elem_focus_mouseover {
 }
@@ -194,15 +199,13 @@ body {
     background-repeat: no-repeat;
     background-color: transparent;
     border: solid 1px transparent;
-    border-color: transparent !important;
-    border-color: #E0E6EC;
     border-radius: 2px;
 }
 .pt span {
     display: none;
 }
 .pt:hover {
-    border: solid 1px #DDD;
+    border: solid 1px #4169E1;
     background: #ededed;
     background-image: url('../img/t_icons.png');
     background-image: url('../img/t_icons.png'), -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
