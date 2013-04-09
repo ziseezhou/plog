@@ -38,7 +38,7 @@ PG_ASSERT(_local_file_load('common'));
     <div id="content_body"></div>
 </div>
 
-</div>
-</div>
+</div><!-- End lay0 -->
+</div><!-- End lay1 -->
 </body>
 </html>

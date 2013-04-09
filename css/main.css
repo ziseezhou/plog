@@ -4,7 +4,7 @@ body {
     margin:0;
     padding: 0;
     font-family: arial, sans-serif;
-    background-color: white;
+    background-color: #FDFDFD;
 }
 #mask {
     display: none;
@@ -38,11 +38,11 @@ body {
     display: block;
     float: left;
     margin-top: 2px;
-    margin-left: 2px;
+    margin-left: 0px;
     margin-right: 2px;
     text-align: center;
     line-height: 30px;
-    min-width: 56px;
+    width: 56px;
     height: 30px;
 }
 .navi_elem {
@@ -50,9 +50,9 @@ body {
     font-size: 15px;
     font-weight: bold;
     color: #666;
-    border-top: solid 1px transparent;
-    border-left: solid 1px transparent;
-    border-right: solid 1px transparent;
+    border-top: solid 1px #C3D9FF;
+    border-left: solid 1px #C3D9FF;
+    border-right: solid 1px #C3D9FF;
 }
 .navi_elem_mouseover {
     font-size: 15px;
@@ -84,9 +84,9 @@ body {
     background: -webkit-gradient(linear,top,from(#F1FAFA),to(#FDFDFD));
     background: -webkit-linear-gradient(top, #F1FAFA, #FDFDFD);
     background: -o-linear-gradient(top, #F1FAFA, #FDFDFD);
-    border-top: solid 1px transparent;
-    border-left: solid 1px transparent;
-    border-right: solid 1px transparent;
+    border-top: solid 1px #C3D9FF;
+    border-left: solid 1px #C3D9FF;
+    border-right: solid 1px #C3D9FF;
 }
 .navi_elem_focus_mouseover {
 }
@@ -100,18 +100,23 @@ body {
 #plog_root {
     width: auto !important;
     width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 10px 0 10px !important;
+    padding: 0;
+}
+#plog_body {
+    margin-left: 0 !important;
+    margin-left: 10px;
 }
 #plog_body textarea {
     display: none;
     float: left;
-    width: 100%;
+    width: 100% !important;
+    width: 95%;
     height: 600px;
     overflow: auto;
     padding: 5px;
-    margin: 0 !important;
     font-size: 13px;
+    background-color: white;
     word-break: break-all;
     word-wrap: break-word;
     -webkit-box-sizing: border-box;
@@ -131,10 +136,13 @@ body {
     -o-box-shadow:0 0 5px rgba(103,166,217,1);
 }
 #plog_toolbar {
-    float:left;
+    float: left;
     clear: both;
     margin-top: 20px;
     margin-bottom: 5px;
+    margin-right: 0px;
+    margin-left: 0 !important;
+    margin-left: 5px;
     background: #E0E6EC;
     filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#FDFDFD', endColorstr='#E0E6EC');
     background: -moz-linear-gradient(top, #FDFDFD, #E0E6EC);
@@ -171,7 +179,7 @@ body {
     height:28px;
     margin:0 2px;
     background: #CCC;
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#FBFBFB', endColorstr='#CCC');
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FBFBFB', endColorstr='#CCCCCC');
     background: -moz-linear-gradient(top, #FBFBFB, #CCC);
     background: -webkit-gradient(linear,top,from(#FBFBFB),to(#CCC));
     background: -webkit-linear-gradient(top, #FBFBFB, #CCC);
@@ -183,10 +191,11 @@ body {
     width:30px;
     height:30px;
     background-image: url('../img/t_icons.png');
-    background-position: 0px 0px;
     background-repeat: no-repeat;
     background-color: transparent;
     border: solid 1px transparent;
+    border-color: transparent !important;
+    border-color: #E0E6EC;
     border-radius: 2px;
 }
 .pt span {
@@ -208,15 +217,22 @@ body {
     float:left;
     width:30px;
     height:30px;
+    background-image: url('../img/t_icons.png');
+    background-repeat: no-repeat;
+    background-color: #FDFDFD;
     border: solid 1px transparent;
+    border-color: #E0E6EC;
+    border-radius: 2px;
+    /*
     background: #FDFDFD;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E0E6EC', endColorstr='#FDFDFD');
     background-image: url('../img/t_icons.png');
     background-image: url('../img/t_icons.png'), -webkit-gradient(linear, left top, left bottom, from(#E0E6EC), to(#FDFDFD));
     background-image: url('../img/t_icons.png'), -webkit-linear-gradient(top, #E0E6EC, #FDFDFD);
     background-image: url('../img/t_icons.png'),    -moz-linear-gradient(top, #E0E6EC, #FDFDFD);
     background-image: url('../img/t_icons.png'),     -ms-linear-gradient(top, #E0E6EC, #FDFDFD);
     background-image: url('../img/t_icons.png'),      -o-linear-gradient(top, #E0E6EC, #FDFDFD);
-    background-image: url('../img/t_icons.png'),         linear-gradient(top, #E0E6EC, #FDFDFD);
+    background-image: url('../img/t_icons.png'),         linear-gradient(top, #E0E6EC, #FDFDFD);*/
 }
 .pt_checked span {
     display: none;
