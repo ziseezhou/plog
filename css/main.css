@@ -247,3 +247,38 @@ body {
 /* banks */
 /* calendar */
 /* settings */
+
+
+/* plog button default css*/
+.plbtn_base {
+    display:block;
+    float:left;
+    width:30px;
+    height:30px;
+    color: white;
+    border: solid 1px #CCCCCC;
+    border-radius: 2px;
+    cursor: default;
+    background-color: #DDDDDD;
+}
+.plbtn_normal {
+    color: white;
+    border: solid 1px #CCCCCC;
+    background-color: #DDDDDD;
+}
+
+.plbtn_hover {
+    border: solid 1px #CCCCCC;
+    background-color: #EFEFEF;
+}
+
+.plbtn_disabled {
+    color: gray;
+    border: solid 1px #CCCCCC;
+    background-color: #666666;
+}
+
+.plbtn_checked {
+    border: solid 1px red;
+    background-color: #DDDDDD;
+}

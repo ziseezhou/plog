@@ -179,6 +179,15 @@ $.button = function(conf) {
 $(document).ready(function() {
     Context.navi.init();
     Context.content.init();
+
+    /** test code
+    $('#btn1').plbtn({id:'#btn1', click:function(){alert('btn1');}});
+    $("#btn2").plbtn({id:'#btn2', click:function(){alert('btn2');}});
+    //$("#btn2").plbtn('disable');
+    $("#btn2").plbtn('check');
+    $("#btn1").tipsy({delayIn:500, fallback:"btn1"});
+    $("#btn2").tipsy({delayIn:500, fallback:"btn2"});
+    */
 });
 
 

@@ -15,6 +15,7 @@ PG_ASSERT(_local_file_load('common'));
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.tipsy.js"></script>
 <script type="text/javascript" src="js/jquery.hotkeys.js"></script>
+<script type="text/javascript" src="js/plbtn.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
@@ -37,7 +38,10 @@ PG_ASSERT(_local_file_load('common'));
     <div id="content_title"></div>
     <div id="content_body"></div>
 </div>
-
+<!--
+<div id="btn1" class="plbtn_base">btn1</div>
+<div id="btn2" class="plbtn_base">btn2</div>
+-->
 </div><!-- End lay0 -->
 </div><!-- End lay1 -->
 </body>
