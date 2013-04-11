@@ -7,6 +7,7 @@
 
     function removeCssClass(obj) {
         var css = $.trim(obj.options.cssNormal+' '+obj.options.cssHover+' '+obj.options.cssDisabled+' '+obj.options.cssChecked);
+        //log(">>> $element="+obj.$element.attr('id'));
         if (css.length > 0) {
             if (typeof obj.id == 'string' && obj.id.length > 0) {
                 $(obj.id).removeClass(css); // why use id, as a unknow bug

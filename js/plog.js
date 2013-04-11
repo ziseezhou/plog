@@ -96,22 +96,25 @@ Context.content.subContext.hotkeyDayUnbind = function() {
 with (Context.content.subContext) {
 
     // toolbar button tip
+    
     $(".pt").each(function() {
-        var tip = $(this).text();
+        var tip  = $(this).text();
+        var id   = "#"+$(this).attr('id');
+        var cssN = $(this).attr('id')+'_normal';
+        var cssH = $(this).attr('id')+'_hover';
+        var cssD = $(this).attr('id')+'_disabled';
+        var cssC = $(this).attr('id')+'_checked';
+
+        //log(">>> id="+id+", cssN="+cssN+", cssH="+cssH+", cssD="+cssD+", cssC="+cssC);
         $(this).tipsy({delayIn:500, fallback:tip});
-        log(">>> id="+$(this).attr('id'));
-        $(this).plbtn({
-            id:$(this).attr('id'),
-            cssNormal:  $(this).attr('id')+'_normal',
-            cssHover:   $(this).attr('id')+'_hover',
-            cssDisabled:$(this).attr('id')+'_disabled',
-            cssChecked: $(this).attr('id')+'_checked'});
+        $(this).plbtn({cssNormal:cssN, cssHover:cssH, cssDisabled:cssD, cssChecked:cssC});
+        $(this).plbtn('normal');
     });
+
 
     // toolbar button click
     $('.pt').click(function() {
         var btnId = $(this).attr('id');
-        log(">>> id="+btnId);
 
         if (btnId == 'pt_d') {
             tabSwitchTo("day");

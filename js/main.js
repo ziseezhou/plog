@@ -180,7 +180,7 @@ $(document).ready(function() {
     Context.navi.init();
     Context.content.init();
 
-    /** test code*/
+    /** test code
     $('#btn1').plbtn({id:'#btn1', click:function(){alert('btn1');}});
     $("#btn2").plbtn({id:'#btn2', click:function(){alert('btn2');}});
     $("#btn3").plbtn({id:'#btn3', click:function(){alert('btn3');}});
@@ -188,7 +188,7 @@ $(document).ready(function() {
     $("#btn1").tipsy({delayIn:500, fallback:"btn1"});
     $("#btn2").tipsy({delayIn:500, fallback:"btn2"});
     $("#btn3").plbtn('disable');
-    $("#btn4").plbtn('check');
+    $("#btn4").plbtn('check');*/
     
 });
 

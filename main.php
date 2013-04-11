@@ -38,11 +38,11 @@ PG_ASSERT(_local_file_load('common'));
     <div id="content_title"></div>
     <div id="content_body"></div>
 </div>
-<!---->
+<!--
 <div id="btn1" class="plbtn_base">Btn1</div>
 <div id="btn2" class="plbtn_base">Btn2</div>
 <div id="btn3" class="plbtn_base">Btn3</div>
-<div id="btn4" class="plbtn_base">Btn4</div>
+<div id="btn4" class="plbtn_base">Btn4</div>-->
 </div><!-- End lay0 -->
 </div><!-- End lay1 -->
 </body>
