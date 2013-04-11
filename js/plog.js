@@ -37,32 +37,32 @@ Context.content.subContext.tabSwitchTo = function(keyId, force) {
 
     //log('>>> tab '+Context.content.subContext.tab+'->'+keyId);
 
-    $("#pt_d").removeClass('pt').removeClass('pt_checked').tipsy('disable');
-    $("#pt_m").removeClass('pt').removeClass('pt_checked').tipsy('disable');
-    $("#pt_y").removeClass('pt').removeClass('pt_checked').tipsy('disable');
+    //$("#pt_d").tipsy('disable');
+    //$("#pt_m").tipsy('disable');
+    //$("#pt_y").tipsy('disable');
     $("#pt_d_t").css('display', 'none');
 
     if (keyId == "day") {
-        $("#pt_d").addClass('pt_checked');
-        $("#pt_m").addClass('pt');
-        $("#pt_y").addClass('pt');
+        $("#pt_d").plbtn('check');
+        $("#pt_m").plbtn('discheck');
+        $("#pt_y").plbtn('discheck');
         $("#plog_body textarea").css('display', 'block');
         $("#pb_m").css('display', 'none');
         $("#pb_y").css('display', 'none');
         $("#pt_d_t").css('display', 'block');
         Context.content.subContext.hotkeyDayBind();
     } else if (keyId == "month") {
-        $("#pt_d").addClass('pt');
-        $("#pt_m").addClass('pt_checked');
-        $("#pt_y").addClass('pt');
+        $("#pt_d").plbtn('discheck');
+        $("#pt_m").plbtn('check');
+        $("#pt_y").plbtn('discheck');
         $("#plog_body textarea").css('display', 'none');
         $("#pb_m").css('display', 'block');
         $("#pb_y").css('display', 'none');
         Context.content.subContext.hotkeyDayUnbind();
     } else if (keyId == "year") {
-        $("#pt_d").addClass('pt');
-        $("#pt_m").addClass('pt');
-        $("#pt_y").addClass('pt_checked');
+        $("#pt_d").plbtn('discheck');
+        $("#pt_m").plbtn('discheck');
+        $("#pt_y").plbtn('check');
         $("#plog_body textarea").css('display', 'none');
         $("#pb_m").css('display', 'none');
         $("#pb_y").css('display', 'block');
@@ -70,10 +70,10 @@ Context.content.subContext.tabSwitchTo = function(keyId, force) {
     }
 
     // toolbar button tip
-    $(".pt").each(function() {
-        var tip = $(this).text();
-        $(this).tipsy({delayIn:500, fallback:tip}).tipsy('enable');
-    });
+    //$(".pt").each(function() {
+    //    var tip = $(this).text();
+    //    $(this).tipsy({delayIn:500, fallback:tip}).tipsy('enable');
+    //});
 
     Context.content.subContext.tab = keyId;
 }
@@ -99,12 +99,19 @@ with (Context.content.subContext) {
     $(".pt").each(function() {
         var tip = $(this).text();
         $(this).tipsy({delayIn:500, fallback:tip});
+        log(">>> id="+$(this).attr('id'));
+        $(this).plbtn({
+            id:$(this).attr('id'),
+            cssNormal:  $(this).attr('id')+'_normal',
+            cssHover:   $(this).attr('id')+'_hover',
+            cssDisabled:$(this).attr('id')+'_disabled',
+            cssChecked: $(this).attr('id')+'_checked'});
     });
 
     // toolbar button click
     $('.pt').click(function() {
         var btnId = $(this).attr('id');
-        //log(">>> id="+btnId);
+        log(">>> id="+btnId);
 
         if (btnId == 'pt_d') {
             tabSwitchTo("day");

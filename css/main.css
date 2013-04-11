@@ -155,28 +155,66 @@ body {
     background: -webkit-linear-gradient(top, #FDFDFD, #E0E6EC);
     background: -o-linear-gradient(top, #FDFDFD, #E0E6EC);
 }
-#pt_m {
-    background-position: -30px 0px;
+#plog_toolbar div span {
+    display: none;
 }
-#pt_y {
-    background-position: -60px 0px;
+.pt {
+    display:block;
+    float:left;
+    width:30px;
+    height:30px;
+    background-image: url('../img/t_icons.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
 }
+
+#pt_d          {background-position: -0px 0px;}
+.pt_d_normal   {background-position: -0px 0px;}
+.pt_d_hover    {background-position: -0px -30px;}
+.pt_d_disabled {background-position: -0px -60px;}
+.pt_d_checked  {background-position: -0px -90px;}
+
+#pt_m          {background-position: -30px 0px;}
+.pt_m_normal   {background-position: -30px 0px;}
+.pt_m_hover    {background-position: -30px -30px;}
+.pt_m_disabled {background-position: -30px -60px;}
+.pt_m_checked  {background-position: -30px -90px;}
+
+#pt_y          {background-position: -60px 0px;}
+.pt_y_normal   {background-position: -60px 0px;}
+.pt_y_hover    {background-position: -60px -30px;}
+.pt_y_disabled {background-position: -60px -60px;}
+.pt_y_checked  {background-position: -60px -90px;}
+
 #pt_d_t {
     float:left;
     display: none;
 }
-#pt_d_t_s {
-    background-position: -90px 0px;
-}
-#pt_d_t_p {
-    background-position: -120px 0px;
-}
-#pt_d_t_n {
-    background-position: -150px 0px;
-}
-#pt_d_t_t {
-    background-position: -180px 0px;
-}
+
+#pt_d_t_s          {background-position: -90px 0px;}
+.pt_d_t_s_normal   {background-position: -90px 0px;}
+.pt_d_t_s_hover    {background-position: -90px -30px;}
+.pt_d_t_s_disabled {background-position: -90px -60px;}
+.pt_d_t_s_checked  {background-position: -90px -90px;}
+
+#pt_d_t_p          {background-position: -120px 0px;}
+.pt_d_t_p_normal   {background-position: -120px 0px;}
+.pt_d_t_p_hover    {background-position: -120px -30px;}
+.pt_d_t_p_disabled {background-position: -120px -60px;}
+.pt_d_t_p_checked  {background-position: -120px -90px;}
+
+#pt_d_t_n          {background-position: -150px 0px;}
+.pt_d_t_n_normal   {background-position: -150px 0px;}
+.pt_d_t_n_hover    {background-position: -150px -30px;}
+.pt_d_t_n_disabled {background-position: -150px -60px;}
+.pt_d_t_n_checked  {background-position: -150px -90px;}
+
+#pt_d_t_t          {background-position: -180px 0px;}
+.pt_d_t_t_normal   {background-position: -180px 0px;}
+.pt_d_t_t_hover    {background-position: -180px -30px;}
+.pt_d_t_t_disabled {background-position: -180px -60px;}
+.pt_d_t_t_checked  {background-position: -180px -90px;}
+
 .pt_divider {
     display: block;
     float:left;
@@ -190,56 +228,7 @@ body {
     background: -webkit-linear-gradient(top, #FBFBFB, #CCC);
     background: -o-linear-gradient(top, #FBFBFB, #CCC);
 }
-.pt {
-    display:block;
-    float:left;
-    width:30px;
-    height:30px;
-    background-image: url('../img/t_icons.png');
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: solid 1px transparent;
-    border-radius: 2px;
-}
-.pt span {
-    display: none;
-}
-.pt:hover {
-    border: solid 1px #4169E1;
-    background: #ededed;
-    background-image: url('../img/t_icons.png');
-    background-image: url('../img/t_icons.png'), -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
-    background-image: url('../img/t_icons.png'), -webkit-linear-gradient(top, #fff, #ededed);
-    background-image: url('../img/t_icons.png'),    -moz-linear-gradient(top, #fff, #ededed);
-    background-image: url('../img/t_icons.png'),     -ms-linear-gradient(top, #fff, #ededed);
-    background-image: url('../img/t_icons.png'),      -o-linear-gradient(top, #fff, #ededed);
-    background-image: url('../img/t_icons.png'),         linear-gradient(top, #fff, #ededed);
-}
-.pt_checked {
-    display:block;
-    float:left;
-    width:30px;
-    height:30px;
-    background-image: url('../img/t_icons.png');
-    background-repeat: no-repeat;
-    background-color: #FDFDFD;
-    border: solid 1px transparent;
-    border-color: #E0E6EC;
-    border-radius: 2px;
-    /*
-    background: #FDFDFD;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E0E6EC', endColorstr='#FDFDFD');
-    background-image: url('../img/t_icons.png');
-    background-image: url('../img/t_icons.png'), -webkit-gradient(linear, left top, left bottom, from(#E0E6EC), to(#FDFDFD));
-    background-image: url('../img/t_icons.png'), -webkit-linear-gradient(top, #E0E6EC, #FDFDFD);
-    background-image: url('../img/t_icons.png'),    -moz-linear-gradient(top, #E0E6EC, #FDFDFD);
-    background-image: url('../img/t_icons.png'),     -ms-linear-gradient(top, #E0E6EC, #FDFDFD);
-    background-image: url('../img/t_icons.png'),      -o-linear-gradient(top, #E0E6EC, #FDFDFD);
-    background-image: url('../img/t_icons.png'),         linear-gradient(top, #E0E6EC, #FDFDFD);*/
-}
-.pt_checked span {
-    display: none;
-}
+
 #pb_m, #pb_y { display: none; float:left; width: 100%;}
 
 
@@ -253,32 +242,40 @@ body {
 .plbtn_base {
     display:block;
     float:left;
-    width:30px;
-    height:30px;
-    color: white;
+    font-size: 12px;
+    padding: 3px 5px;
+    color: black;
     border: solid 1px #CCCCCC;
-    border-radius: 2px;
     cursor: default;
-    background-color: #DDDDDD;
+    border-radius: 2px;
+    background: #FEFEFE;
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#FEFEFE', endColorstr='#EDEDED');
+    background: -moz-linear-gradient(top, #FEFEFE, #EDEDED);
+    background: -webkit-gradient(linear,top,from(#FEFEFE),to(#EDEDED));
+    background: -webkit-linear-gradient(top, #FEFEFE, #EDEDED);
+    background: -o-linear-gradient(top, #FEFEFE, #EDEDED);
 }
 .plbtn_normal {
-    color: white;
+    color: black;
     border: solid 1px #CCCCCC;
-    background-color: #DDDDDD;
+    background: #FEFEFE;
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#FEFEFE', endColorstr='#EDEDED');
+    background: -moz-linear-gradient(top, #FEFEFE, #EDEDED);
+    background: -webkit-gradient(linear,top,from(#FEFEFE),to(#EDEDED));
+    background: -webkit-linear-gradient(top, #FEFEFE, #EDEDED);
+    background: -o-linear-gradient(top, #FEFEFE, #EDEDED);
 }
 
 .plbtn_hover {
-    border: solid 1px #CCCCCC;
-    background-color: #EFEFEF;
+    border: solid 1px #666666;
 }
 
 .plbtn_disabled {
-    color: gray;
-    border: solid 1px #CCCCCC;
-    background-color: #666666;
+    color: #888888;
 }
 
 .plbtn_checked {
-    border: solid 1px red;
-    background-color: #DDDDDD;
+    color: #888888;
+    background: #FFFFFF;
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#FFFFFF');
 }

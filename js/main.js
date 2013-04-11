@@ -180,14 +180,16 @@ $(document).ready(function() {
     Context.navi.init();
     Context.content.init();
 
-    /** test code
+    /** test code*/
     $('#btn1').plbtn({id:'#btn1', click:function(){alert('btn1');}});
     $("#btn2").plbtn({id:'#btn2', click:function(){alert('btn2');}});
-    //$("#btn2").plbtn('disable');
-    $("#btn2").plbtn('check');
+    $("#btn3").plbtn({id:'#btn3', click:function(){alert('btn3');}});
+    $("#btn4").plbtn({id:'#btn4', click:function(){alert('btn4');}});
     $("#btn1").tipsy({delayIn:500, fallback:"btn1"});
     $("#btn2").tipsy({delayIn:500, fallback:"btn2"});
-    */
+    $("#btn3").plbtn('disable');
+    $("#btn4").plbtn('check');
+    
 });
 
 
