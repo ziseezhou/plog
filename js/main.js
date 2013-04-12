@@ -138,6 +138,8 @@ Context.content.load = function(destKey) {
             unload = null;
         }
 
+        //return;
+
         // animation unload
 
         // load new content
@@ -180,17 +182,23 @@ $(document).ready(function() {
     Context.navi.init();
     Context.content.init();
 
-    /** test code*/
-    $('#btn1').plbtn({group:'toolbarTab', click:function(){alert('btn1');}});
-    $("#btn2").plbtn({group:'toolbarTab', click:function(){alert('btn2');}});
+    // @supress default ctrl+s behave
+    $(document).bind('keydown', 'Ctrl+s', function(){return false;});
+
+    /** test code
+    //$('#btn1').plbtn({click:function(){alert('btn1');}});
+    //$("#btn2").plbtn({click:function(){alert('btn2');}});
     $("#btn3").plbtn({click:function(){alert('btn3');}});
     $("#btn4").plbtn({click:function(){alert('btn4');}});
-    $("#btn1").tipsy({delayIn:500, fallback:"btn1"});
-    $("#btn2").tipsy({delayIn:500, fallback:"btn2"});
+    //$("#btn1").tipsy({delayIn:500, fallback:"btn1"});
+    //$("#btn2").tipsy({delayIn:500, fallback:"btn2"});
     $("#btn3").plbtn('disable');
     $("#btn4").plbtn('check');
-    //$("#btn1").plbtn('belongGroup', 'toolbarTab');
-    //$("#btn2").plbtn('belongGroup', 'toolbarTab');
+    $('#btn1').plbtn({group:'toolbarTab'});
+    $("#btn2").plbtn({group:'toolbarTab'});
+    $("#btn1").plbtn('belongGroup', 'toolbarTab');
+    $("#btn2").plbtn('belongGroup', 'toolbarTab');
+    $("#btn2").click();*/
     
 });
 

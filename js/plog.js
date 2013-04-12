@@ -18,7 +18,7 @@ Context.content.unload = function() {
 // =================================================================================
 // Defines (subContext, functions ...)
 Context.content.subContext = Context.content.subContext || {};
-Context.content.subContext.tab = "day"; // can load from cookie, [day|month|year]
+Context.content.subContext.tab = ''; // [day|month|year]
 
 // plog::functions
 Context.content.subContext.save = function() {
@@ -30,61 +30,42 @@ Context.content.subContext.tabIsCurrent = function(keyId) {
     return Context.content.subContext.tab==keyId;
 }
 
-Context.content.subContext.tabSwitchTo = function(keyId, force) {
-    if (Context.content.subContext.tabIsCurrent(keyId) && !force) {
-        return;
-    }
+Context.content.subContext.tabIsNull = function() {
+    return Context.content.subContext.tab.length==0;
+}
 
-    //log('>>> tab '+Context.content.subContext.tab+'->'+keyId);
+Context.content.subContext.tabSwitchToDay = function() {
+    $("#plog_body textarea").css('display', 'block');
+    $("#pb_m").css('display', 'none');
+    $("#pb_y").css('display', 'none');
+    $("#pt_d_t").css('display', 'block');
+    Context.content.subContext.hotkeyDayBind();
+    Context.content.subContext.tab = 'day';
+}
 
-    //$("#pt_d").tipsy('disable');
-    //$("#pt_m").tipsy('disable');
-    //$("#pt_y").tipsy('disable');
+Context.content.subContext.tabSwitchToMonth = function() {
     $("#pt_d_t").css('display', 'none');
+    $("#plog_body textarea").css('display', 'none');
+    $("#pb_m").css('display', 'block');
+    $("#pb_y").css('display', 'none');
+    Context.content.subContext.hotkeyDayUnbind();
+    Context.content.subContext.tab = 'month';
+}
 
-    if (keyId == "day") {
-        $("#pt_d").plbtn('check');
-        $("#pt_m").plbtn('discheck');
-        $("#pt_y").plbtn('discheck');
-        $("#plog_body textarea").css('display', 'block');
-        $("#pb_m").css('display', 'none');
-        $("#pb_y").css('display', 'none');
-        $("#pt_d_t").css('display', 'block');
-        Context.content.subContext.hotkeyDayBind();
-    } else if (keyId == "month") {
-        $("#pt_d").plbtn('discheck');
-        $("#pt_m").plbtn('check');
-        $("#pt_y").plbtn('discheck');
-        $("#plog_body textarea").css('display', 'none');
-        $("#pb_m").css('display', 'block');
-        $("#pb_y").css('display', 'none');
-        Context.content.subContext.hotkeyDayUnbind();
-    } else if (keyId == "year") {
-        $("#pt_d").plbtn('discheck');
-        $("#pt_m").plbtn('discheck');
-        $("#pt_y").plbtn('check');
-        $("#plog_body textarea").css('display', 'none');
-        $("#pb_m").css('display', 'none');
-        $("#pb_y").css('display', 'block');
-        Context.content.subContext.hotkeyDayUnbind();
-    }
-
-    // toolbar button tip
-    //$(".pt").each(function() {
-    //    var tip = $(this).text();
-    //    $(this).tipsy({delayIn:500, fallback:tip}).tipsy('enable');
-    //});
-
-    Context.content.subContext.tab = keyId;
+Context.content.subContext.tabSwitchToYear = function() {
+    $("#pt_d_t").css('display', 'none');
+    $("#plog_body textarea").css('display', 'none');
+    $("#pb_m").css('display', 'none');
+    $("#pb_y").css('display', 'block');
+    Context.content.subContext.hotkeyDayUnbind();
+    Context.content.subContext.tab = 'year';
 }
 
 Context.content.subContext.hotkeyDayBind = function() {
-    //log('>>> day bind hotkey');
     $(document).bind('keydown', 'Ctrl+s', Context.content.subContext.save);
     $("#plog_body textarea").bind('keydown', 'Ctrl+s', Context.content.subContext.save);
 }
 Context.content.subContext.hotkeyDayUnbind = function() {
-    //log('>>> day unbind hotkey ~');
     $(document).unbind('keydown', Context.content.subContext.save);
     $("#plog_body textarea").unbind('keydown', Context.content.subContext.save);
 }
@@ -95,8 +76,7 @@ Context.content.subContext.hotkeyDayUnbind = function() {
 // [[
 with (Context.content.subContext) {
 
-    // toolbar button tip
-    
+    // toolbar button css&tip
     $(".pt").each(function() {
         var tip  = $(this).text();
         var id   = "#"+$(this).attr('id');
@@ -105,7 +85,6 @@ with (Context.content.subContext) {
         var cssD = $(this).attr('id')+'_disabled';
         var cssC = $(this).attr('id')+'_checked';
 
-        //log(">>> id="+id+", cssN="+cssN+", cssH="+cssH+", cssD="+cssD+", cssC="+cssC);
         $(this).tipsy({delayIn:500, fallback:tip});
         $(this).plbtn({cssNormal:cssN, cssHover:cssH, cssDisabled:cssD, cssChecked:cssC});
         $(this).plbtn('normal');
@@ -113,26 +92,16 @@ with (Context.content.subContext) {
 
 
     // toolbar button click
-    $('.pt').click(function() {
-        var btnId = $(this).attr('id');
+    $("#pt_d_t_s").click(save);
+    $("#pt_d").plbtn('belongGroup', 'toolbarTab', tabSwitchToDay);
+    $("#pt_m").plbtn('belongGroup', 'toolbarTab', tabSwitchToMonth);
+    $("#pt_y").plbtn('belongGroup', 'toolbarTab', tabSwitchToYear);
 
-        if (btnId == 'pt_d') {
-            tabSwitchTo("day");
-        } else if (btnId == 'pt_m') {
-            tabSwitchTo("month");
-        } else if (btnId == 'pt_y') {
-            tabSwitchTo("year");
-        } else if (btnId == 'pt_d_t_s') {
-            save();
-        } else if (btnId == 'pt_d_t_p') {
-            ;
-        }
-    });
+    // plog tab switch, can load from cookie
+    $('#pt_d').click();
 
-    // plog tab switch
-    tabSwitchTo(tab, true);
 
-    // bind hotkeys (after everything is ok)
+    // bind hotkeys if needed (after everything is ok)
     
 
 } // ]] end with(Context.content.subContext)

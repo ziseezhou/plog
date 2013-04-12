@@ -30,13 +30,11 @@
     }
 
     function getGroup(obj, g) {
-        var parentId = '#'+obj.$element.parent().attr("id");
-        var group = $.data($(parentId), 'group');
-        log(">>> getGroup parent_name="+parentId+", group="+group);
+        var parent = obj.$element.parent();
+        var group = parent.data('group');
         if (!group) {
             group = new Group(g);
-            $.data($(parentId), 'group', group);
-            log(">>> new Group name="+g);
+            parent.data('group', group);
         }
         return group;
     }
@@ -88,7 +86,7 @@
             addCssClass(this, this.options.cssChecked);
         },
 
-        discheck: function() { 
+        uncheck: function() { 
             this.checked = false; 
             removeCssClass(this);
             addCssClass(this, this.options.cssNormal);
@@ -99,13 +97,17 @@
                 if (this.options.group.length > 0) {
                     // uncheck the old none
                     var group = getGroup(this, this.options.group);
-                    var checkedDivId = group[this.options.group].checkId;
-                    if (checkedDivId > 0) {
-                        $('#'+checkedDivId).plbtn('uncheck');
-                    }
-                }
+                    if (group){
+                        var checkedDivId = group[this.options.group].checkId;
+                        if (checkedDivId.length > 0) {
+                            $('#'+checkedDivId).plbtn('uncheck');
+                        }
 
-                this.check();
+                        group[this.options.group].checkId = this.$element.attr("id");
+                    }
+
+                    this.check();
+                }
 
                 if (typeof this.options.click == 'function') {
                     this.options.click.call();
@@ -113,15 +115,21 @@
             }
         },
 
-        belongGroup : function(g) {
-            //var group = getGroup(this, g);
 
-            //if (this.options.group != g) {
-            //    this.options.group = g;
-            //}
+        belongGroup : function(g, f) {
+            var group = getGroup(this, g);
 
-            //group[g].elems.push(this.$element.attr("id"));
+            if (this.options.group != g) {
+                this.options.group = g;
+            }
+
+            if (typeof f == 'function') {
+                this.options.click = f;
+            }
+
+            group[g].elems.push(this.$element.attr("id"));
         }
+        
     };
 
     $.fn.plbtn = function(options) {
@@ -134,7 +142,7 @@
                 if (!arguments[1]) {
                     plbtn[options]();
                 } else {
-                    plbtn[options](arguments[1]);
+                    plbtn[options](arguments[1], arguments[2]);
                 }
             }
             return this;
@@ -149,15 +157,6 @@
                 $.data(ele, 'plbtn', plbtn);
             }
             return plbtn;
-        }
-
-        function getGroup(ele) {
-            var group = $.data(ele.parent(), 'group');
-            if (!group) {
-                group = new Group(g);
-                $.data($(parentId), 'group', group);
-            }
-            return group;
         }
 
         function enter() {
@@ -176,16 +175,11 @@
         }
 
         function belongGroup(g) {
-            var group = getGroup(this);
-            group.belongGroup(g);
+            var plbtn = get(this);
+            plbtn.belongGroup(g);
         }
 
         this.each(function() { get(this); });
-
-        if (typeof options.group == 'string' && options.group.length > 0) {
-            this.each(function() { belongGroup(options.group); });
-        }
-
         this.bind('mouseenter', enter).bind('mouseleave', leave);
         this.bind('click', clickfun);
 
