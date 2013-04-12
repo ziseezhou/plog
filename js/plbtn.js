@@ -7,34 +7,46 @@
 
     function removeCssClass(obj) {
         var css = $.trim(obj.options.cssNormal+' '+obj.options.cssHover+' '+obj.options.cssDisabled+' '+obj.options.cssChecked);
-        //log(">>> $element="+obj.$element.attr('id'));
         if (css.length > 0) {
-            if (typeof obj.id == 'string' && obj.id.length > 0) {
-                $(obj.id).removeClass(css); // why use id, as a unknow bug
-            } else {
-                obj.$element.removeClass(css);
-            }
+            obj.$element.removeClass(css);
         }
     };
 
     function addCssClass(obj, css){
         var css = $.trim(css);
         if (css.length > 0) {
-            if (typeof obj.id == 'string' && obj.id.length > 0) {
-                $(obj.id).addClass(css);
-            } else {
-                obj.$element.addClass(css);
-            }
+            obj.$element.addClass(css);
         }
+    }
+
+    function Group(groupName) {
+        if (!this[groupName]) {
+            this[groupName] = {};
+        }
+
+        this[groupName].checkId = '';
+        this[groupName].name = groupName;
+        this[groupName].elems = [];
+    }
+
+    function getGroup(obj, g) {
+        var parentId = '#'+obj.$element.parent().attr("id");
+        var group = $.data($(parentId), 'group');
+        log(">>> getGroup parent_name="+parentId+", group="+group);
+        if (!group) {
+            group = new Group(g);
+            $.data($(parentId), 'group', group);
+            log(">>> new Group name="+g);
+        }
+        return group;
     }
 
     function Plbtn(element, options) {
         this.$element = $(element);
-        this.id      = options.id;
         this.options = options;
         this.enabled = true;
         this.checked = false;
-    };
+    }
 
     Plbtn.prototype = {
         normal: function(){
@@ -83,19 +95,32 @@
         },
 
         clickfun : function() {
-            if (typeof this.options.click == 'function' && this.enabled && !this.checked) {
-                this.options.click.call();
+            if (this.enabled && !this.checked) {
+                if (this.options.group.length > 0) {
+                    // uncheck the old none
+                    var group = getGroup(this, this.options.group);
+                    var checkedDivId = group[this.options.group].checkId;
+                    if (checkedDivId > 0) {
+                        $('#'+checkedDivId).plbtn('uncheck');
+                    }
+                }
+
+                this.check();
+
+                if (typeof this.options.click == 'function') {
+                    this.options.click.call();
+                }
             }
         },
 
-        setclick: function() {
-            //this.$element.unbind('click');
-            //if (typeof c == 'function') {
-            //    this.$element.bind('click', c);
+        belongGroup : function(g) {
+            //var group = getGroup(this, g);
+
+            //if (this.options.group != g) {
+            //    this.options.group = g;
             //}
-            if (typeof this.options.id == 'string' && this.options.id.length > 0 ) {
-                $(this.options.id).bind('click', this.clicked);
-            }
+
+            //group[g].elems.push(this.$element.attr("id"));
         }
     };
 
@@ -105,7 +130,13 @@
             return this.data('plbtn');
         } else if (typeof options == 'string') {
             var plbtn = this.data('plbtn');
-            if (plbtn) plbtn[options](); // execute functions
+            if (plbtn) { // execute functions
+                if (!arguments[1]) {
+                    plbtn[options]();
+                } else {
+                    plbtn[options](arguments[1]);
+                }
+            }
             return this;
         }
 
@@ -120,38 +151,54 @@
             return plbtn;
         }
 
+        function getGroup(ele) {
+            var group = $.data(ele.parent(), 'group');
+            if (!group) {
+                group = new Group(g);
+                $.data($(parentId), 'group', group);
+            }
+            return group;
+        }
+
         function enter() {
             var plbtn = get(this);
             plbtn.hover();
-        };
+        }
         
         function leave() {
             var plbtn = get(this);
             plbtn.normal();
-        };
+        }
 
         function clickfun() {
             var plbtn = get(this);
             plbtn.clickfun();
         }
 
-        this.each(function() { get(this); });
-        this.bind('mouseenter', enter).bind('mouseleave', leave);
-        //setclick();
-        if (options.click != null && (typeof options.id == 'string' && options.id.length > 0) ) {
-            $(options.id).bind('click', clickfun);
+        function belongGroup(g) {
+            var group = getGroup(this);
+            group.belongGroup(g);
         }
+
+        this.each(function() { get(this); });
+
+        if (typeof options.group == 'string' && options.group.length > 0) {
+            this.each(function() { belongGroup(options.group); });
+        }
+
+        this.bind('mouseenter', enter).bind('mouseleave', leave);
+        this.bind('click', clickfun);
 
         return this;
     };
 
     $.fn.plbtn.defaults = {
-        id:'',
-        cssNormal: 'plbtn_normal',
-        cssHover: 'plbtn_hover',
+        cssNormal:   'plbtn_normal',
+        cssHover:    'plbtn_hover',
         cssDisabled: 'plbtn_disabled',
-        cssChecked: 'plbtn_checked',
-        click: null
+        cssChecked:  'plbtn_checked',
+        click: null,
+        group: ''
     };
 
     $.fn.plbtn.elementOptions = function(ele, options) {

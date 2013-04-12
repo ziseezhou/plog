@@ -180,15 +180,17 @@ $(document).ready(function() {
     Context.navi.init();
     Context.content.init();
 
-    /** test code
-    $('#btn1').plbtn({id:'#btn1', click:function(){alert('btn1');}});
-    $("#btn2").plbtn({id:'#btn2', click:function(){alert('btn2');}});
-    $("#btn3").plbtn({id:'#btn3', click:function(){alert('btn3');}});
-    $("#btn4").plbtn({id:'#btn4', click:function(){alert('btn4');}});
+    /** test code*/
+    $('#btn1').plbtn({group:'toolbarTab', click:function(){alert('btn1');}});
+    $("#btn2").plbtn({group:'toolbarTab', click:function(){alert('btn2');}});
+    $("#btn3").plbtn({click:function(){alert('btn3');}});
+    $("#btn4").plbtn({click:function(){alert('btn4');}});
     $("#btn1").tipsy({delayIn:500, fallback:"btn1"});
     $("#btn2").tipsy({delayIn:500, fallback:"btn2"});
     $("#btn3").plbtn('disable');
-    $("#btn4").plbtn('check');*/
+    $("#btn4").plbtn('check');
+    //$("#btn1").plbtn('belongGroup', 'toolbarTab');
+    //$("#btn2").plbtn('belongGroup', 'toolbarTab');
     
 });
 

@@ -76,11 +76,8 @@ body { margin:0; padding: 0; font-family: arial, sans-serif; background-color: #
 
 
 /* plog button default css*/
-.plbtn_base { display:block; float:left; font-size: 12px; padding: 3px 5px; color: black; border: solid 1px #CCCCCC; cursor: default; border-radius: 2px; background: #FEFEFE; filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#FEFEFE', endColorstr='#EDEDED'); background: -moz-linear-gradient(top, #FEFEFE, #EDEDED); background: -webkit-gradient(linear,top,from(#FEFEFE),to(#EDEDED)); background: -webkit-linear-gradient(top, #FEFEFE, #EDEDED); background: -o-linear-gradient(top, #FEFEFE, #EDEDED); }
-.plbtn_normal { color: black; border: solid 1px #CCCCCC; background: #FEFEFE; filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#FEFEFE', endColorstr='#EDEDED'); background: -moz-linear-gradient(top, #FEFEFE, #EDEDED); background: -webkit-gradient(linear,top,from(#FEFEFE),to(#EDEDED)); background: -webkit-linear-gradient(top, #FEFEFE, #EDEDED); background: -o-linear-gradient(top, #FEFEFE, #EDEDED); }
-
-.plbtn_hover { border: solid 1px #666666; }
-
+.plbtn_base     { display:block; float:left; font-size: 12px; padding: 3px 5px; color: black; border: solid 1px #CCCCCC; cursor: default; border-radius: 2px; background: #FEFEFE; filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#FEFEFE', endColorstr='#EDEDED'); background: -moz-linear-gradient(top, #FEFEFE, #EDEDED); background: -webkit-gradient(linear,top,from(#FEFEFE),to(#EDEDED)); background: -webkit-linear-gradient(top, #FEFEFE, #EDEDED); background: -o-linear-gradient(top, #FEFEFE, #EDEDED); }
+.plbtn_normal   { color: black; border: solid 1px #CCCCCC; background: #FEFEFE; filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#FEFEFE', endColorstr='#EDEDED'); background: -moz-linear-gradient(top, #FEFEFE, #EDEDED); background: -webkit-gradient(linear,top,from(#FEFEFE),to(#EDEDED)); background: -webkit-linear-gradient(top, #FEFEFE, #EDEDED); background: -o-linear-gradient(top, #FEFEFE, #EDEDED); }
+.plbtn_hover    { border: solid 1px #666666; }
 .plbtn_disabled { color: #888888; }
-
-.plbtn_checked { color: #888888; background: #FFFFFF; filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#FFFFFF'); }
+.plbtn_checked  { color: #888888; background: #FFFFFF; filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#FFFFFF'); }
