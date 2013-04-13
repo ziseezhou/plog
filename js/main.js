@@ -33,95 +33,31 @@ $.inputRecover = function() {
 // Context global
 
 Context = {};
-Context.navi = {};
-Context.navi.focused = 'navi_plog'; // default key
-Context.navi.addrMaps = {
-    'navi_plog'     : 'plog',
-    'navi_plans'    : 'plans',
-    'navi_banks'    : 'banks',
-    'navi_calendar' : 'calendar',
-    'navi_settings' : 'settings'
-};
-
 
 // =================================================================================
-// Context navigartion
+// Context navigartion, [plog|plans|banks|calendar|settings]
 
-Context.navi.isFocusedId = function(id) {
-    return id==Context.navi.focused;
-}
+Context.navi               = {};
+Context.navi.clickPlog     = function(){ Context.content.load('plog');      };
+Context.navi.clickPlans    = function(){ Context.content.load('plans');     };
+Context.navi.clickBanks    = function(){ Context.content.load('banks');     };
+Context.navi.clickCalendar = function(){ Context.content.load('calendar');  };
+Context.navi.clickSettings = function(){ Context.content.load('settings');  };
 
-Context.navi.getFocusedObj = function() {
-    return $("#"+Context.navi.focused);
-}
+Context.init = function() {
+    $('#navi li').each(function(){
+        $(this).plbtn({cssNormal:'navi_normal', cssHover:'navi_hover', cssDisabled:'navi_normal', cssChecked:'navi_checked'});
+        $(this).plbtn('normal');
+    });
+    $("#navi_plog").plbtn('belongGroup',     'toolbarTab', Context.navi.clickPlog);
+    $("#navi_plans").plbtn('belongGroup',    'toolbarTab', Context.navi.clickPlans);
+    $("#navi_banks").plbtn('belongGroup',    'toolbarTab', Context.navi.clickBanks);
+    $("#navi_calendar").plbtn('belongGroup', 'toolbarTab', Context.navi.clickCalendar);
+    $("#navi_settings").plbtn('belongGroup', 'toolbarTab', Context.navi.clickSettings);
 
-Context.navi.getFocusedKey = function() {
-    with (Context.navi) {
-        if (addrMaps[focused]) {
-            return addrMaps[focused];
-        }
-
-        // fetch a default or the stored one
-        return 'plog';
-    }
-}
-
-Context.navi.getFocusedNaviId = function() {
-    with (Context.navi) {
-        if (addrMaps[focused]) {
-            return focused;
-        }
-
-        // fetch a default or the stored one
-        return 'navi_plog';
-    }
-}
-
-Context.navi.goto = function(naviId) {
-    if (!Context.navi.addrMaps[naviId]) {
-        log('>>> navi no naviId='+naviId);
-        return;
-    }
-
-    var dest = Context.navi.addrMaps[naviId];
-    Context.navi.focused = naviId;
-    Context.navi.updateCSS();
-
-    // switch to new channel
-    Context.content.load(dest);
-};
-
-Context.navi.updateCSS = function() {
-    with (Context.navi) {
-        $("#navi li").removeClass().addClass('navi_elem')
-        .hover(function() {
-            var elem = $(this);
-            if (!isFocusedId(elem.attr("id"))) {
-                elem.removeClass().addClass('navi_elem_mouseover');
-            }
-        }, function() {
-            var elem = $(this);
-            if (!isFocusedId(elem.attr("id"))) {
-                elem.removeClass().addClass('navi_elem');
-            }
-        });
-
-        getFocusedObj().removeClass().addClass('navi_elem_focus');
-    }
-};
-
-Context.navi.init = function() {
-    with (Context.navi) {
-        $("#navi li").click(function() {
-            var elem = $(this);
-            if (!isFocusedId(elem.attr("id"))) {
-                goto(elem.attr("id"));
-            }
-        });
-
-        updateCSS();
-    }
-
+    // init channel, default can be read from cookie
+    var defaultChannel = 'plog';
+    $('#navi_'+defaultChannel).click();
 };
 
 
@@ -129,58 +65,51 @@ Context.navi.init = function() {
 // Context content
 
 Context.content = {};
-Context.content.unload = null; // setup by[plog.js|plans.js|banks.js ...]
+Context.content.unload = null; // setup by [plog.js| plans.js| banks.js ...]
 
 Context.content.load = function(destKey) {
     with(Context.content) {
+        $.inputHangup();
+
+        // destructor
         if ($.isFunction(unload)) {
             unload();
             unload = null;
         }
 
-        //return;
-
-        // animation unload
-
         // load new content
-        var body = $('#content_body');
-        body.empty();
-        $.get('?c='+destKey, {},
+        $('#content_body').hide();
+        $('#content_body').empty();
+
+        $.get(
+            '?c='+destKey, 
+            {},
             function (data) {
-                body.html(data);
-            }, 'html')
-         .fail(function() { log('>>> Content request failed.'); })
-         .done(function() {
+                $('#content_body').html(data);
+            },
+            'html'
+        )
+        .fail(function() { log('>>> Content request failed.'); $.inputRecover(); })
+        .done(function() {
+
             // load and execute script
             var options = {
-            url: "js/"+destKey+'.js',
-            dataType: "script",
-            cache: true
+                url:        "js/"+destKey+'.js',
+                dataType:   "script",
+                cache:      true
             };
 
             jQuery.ajax(options)
-            .fail(function() { log('>>> js request failed.'); });
+            .fail(function() { log('>>> js request failed.'); $.inputRecover(); })
+            .done(function() { $('#content_body').fadeIn(300); $.inputRecover(); });
          });
     }
 }
 
-Context.content.init = function() {
-    Context.navi.goto(Context.navi.getFocusedNaviId());
-}
-
-
-// =================================================================================
-// Button
-$.button = function(conf) {
-    ;
-}
-
-
 // =================================================================================
 // Init
 $(document).ready(function() {
-    Context.navi.init();
-    Context.content.init();
+    Context.init();
 
     // @supress default ctrl+s behave
     $(document).bind('keydown', 'Ctrl+s', function(){return false;});
